@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
-
 {% block head %}
+<script>
+    function validateForm() {
+    var x = document.forms["taskform"]["content"].value;
+    if (x == "") {
+        alert("Task should not be NULL");
+        return false;
+    }
+}
+</script>
 <title>Task Master</title>
 {% endblock %}
 
@@ -31,8 +39,8 @@
     {% endif %}
 
     <div class="form">
-        <form action="/" method="POST">
-            <input type="text" name="content" id="content" required>
+        <form id="taskform" action="/" onsubmit="return validateForm()" method="POST">
+            <input type="text" name="content" id="content">
             <input type="submit" value="Add Task">
         </form>
     </div>
