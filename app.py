@@ -13,6 +13,15 @@ class Todo(db.Model):
     def __repr__(self):
         return '<Task %r>' % self.id
 
+'''
+creating SQLAlchemy database:
+    in python prompt run below code
+
+    from app import db
+    db.create_all()      # this will create the database test.db
+    exit()
+'''        
+
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
